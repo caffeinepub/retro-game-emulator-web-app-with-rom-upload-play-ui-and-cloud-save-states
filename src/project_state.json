@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Project to create a retro game emulator.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- TV/CRT frame overlay with bezel, subtle reflections, and screen cutout transparency (crt-tv-frame.dim_1600x900.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-retro-game-emulator-single-page-app-that-lets-a-user-load-a-rom-locally-in-the-browser-start-stop-gameplay-and-view-the-emulator-output-in-a-dedicated-play-screen",
+      "title": "Create a retro game emulator single-page app that lets a user load a ROM locally in the browser, start/stop gameplay, and view the emulator output in a dedicated play screen.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-input-controls-for-gameplay-map-keyboard-inputs-to-emulator-buttons-and-provide-an-on-screen-controller-for-touch-devices",
+      "title": "Add input controls for gameplay: map keyboard inputs to emulator buttons and provide an on-screen controller for touch devices.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-basic-game-library-ui-that-lists-previously-loaded-roms-by-name-metadata-derived-locally-allows-launching-a-game-and-allows-removing-an-entry-from-the-list",
+      "title": "Implement a basic game library UI that lists previously loaded ROMs (by name/metadata derived locally), allows launching a game, and allows removing an entry from the list.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-emulator-settings-ui-for-at-least-audio-on-off-volume-video-scaling-mode-fit-vs-integer-nearest-and-a-way-to-remap-controls",
+      "title": "Add emulator settings UI for at least: audio on/off, volume, video scaling mode (fit vs integer/nearest), and a way to remap controls.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-save-load-state-functionality-allow-creating-named-save-states-and-loading-them-later-with-optional-syncing-to-the-backend-for-logged-in-users",
+      "title": "Add save/load state functionality: allow creating named save states and loading them later, with optional syncing to the backend for logged-in users.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-authenticated-ux-using-internet-identity-show-sign-in-sign-out-controls-and-clearly-indicate-when-cloud-sync-backend-saves-is-enabled",
+      "title": "Add authenticated UX using Internet Identity: show sign-in/sign-out controls, and clearly indicate when cloud sync (backend saves) is enabled.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-retro-inspired-visual-theme-across-the-app-colors-typography-spacing-components-with-a-distinct-style-suitable-for-a-game-emulator-ui-avoid-blue-purple-as-primary-colors",
+      "title": "Apply a cohesive retro-inspired visual theme across the app (colors, typography, spacing, components) with a distinct style suitable for a game emulator UI (avoid blue/purple as primary colors).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-basic-in-app-help-a-help-about-panel-that-explains-supported-rom-loading-controls-save-states-local-vs-cloud-and-includes-a-disclaimer-that-users-must-own-the-roms-they-load",
+      "title": "Add basic in-app help: a Help/About panel that explains supported ROM loading, controls, save states (local vs cloud), and includes a disclaimer that users must own the ROMs they load.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-image-assets-for-branding-and-ui-polish-and-render-them-in-the-app-ui-from-frontend-public-assets-generated",
+      "title": "Add generated static image assets for branding and UI polish, and render them in the app UI from frontend/public/assets/generated.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-tv-crt-style-display-element-to-the-emulator-area-on-the-play-screen-by-wrapping-the-existing-canvas-display-in-a-tv-frame-overlay-while-keeping-all-current-behaviors-rom-upload-overlay-error-overlay-canvas-sizing-working",
+      "title": "Add a TV/CRT-style display element to the emulator area on the Play screen by wrapping the existing <canvas> display in a TV frame/overlay, while keeping all current behaviors (ROM upload overlay, error overlay, canvas sizing) working.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-generated-tv-crt-frame-image-asset-to-the-app-as-a-static-file-under-frontend-public-assets-generated-and-render-it-in-the-play-screen-emulator-display-container",
+      "title": "Add the generated TV/CRT frame image asset to the app as a static file under frontend/public/assets/generated and render it in the Play screen emulator display container.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a retro game emulator application.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement backend persistence for authenticated users: store per-user game entries (metadata only) and per-user per-game save states (binary blobs) with create/list/delete operations.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add a TV/CRT-style display element (e.g., TV frame/overlay) to the emulator play screen UI.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Retro game emulator web app with ROM upload, play UI, and cloud save states",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

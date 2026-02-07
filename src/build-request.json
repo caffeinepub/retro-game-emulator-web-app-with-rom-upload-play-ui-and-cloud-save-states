@@ -1,0 +1,60 @@
+{
+  "kind": "build_request",
+  "title": "Add a TV/CRT frame overlay to the Play screen emulator display",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "text": "Add a TV/CRT-style display element to the emulator area on the Play screen by wrapping the existing <canvas> display in a TV frame/overlay, while keeping all current behaviors (ROM upload overlay, error overlay, canvas sizing) working.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Can you add the tv?"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On the Play screen, the emulator display visually appears inside a TV/CRT frame (overlay) around the existing canvas.",
+        "The ROM upload overlay (\"No ROM loaded\" + file picker) and error overlay still appear above the canvas content and remain readable/clickable.",
+        "The TV/CRT frame scales responsively with the existing aspect-video container and does not distort the canvas rendering.",
+        "The overlay does not intercept pointer events intended for the ROM upload controls (i.e., frame overlay uses pointer-events: none where appropriate)."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Add the generated TV/CRT frame image asset to the app as a static file under frontend/public/assets/generated and render it in the Play screen emulator display container.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Can you add the tv?"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A new TV/CRT frame PNG exists at frontend/public/assets/generated/crt-tv-frame.dim_1600x900.png.",
+        "PlayScreen uses the static generated asset path (/assets/generated/crt-tv-frame.dim_1600x900.png) to render the frame overlay.",
+        "No backend changes are required for the TV/CRT frame display."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor in backend/main.mo (no additional backend services).",
+    "Do not edit files under frontend/src/components/ui (compose them instead).",
+    "Do not edit immutable hook entrypoints listed in SYSTEM_CONTEXT (e.g., frontend/src/hooks/useInternetIdentity.ts(x), frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
+    "Use English for any user-facing text."
+  ],
+  "nonGoals": [
+    "Adding new emulator functionality (audio/video emulation changes, performance tuning, shader-based CRT effects).",
+    "Adding new settings toggles for the TV frame unless explicitly requested later."
+  ],
+  "imageRequirements": {
+    "required": [
+      "TV/CRT frame overlay with bezel, subtle reflections, and screen cutout transparency (crt-tv-frame.dim_1600x900.png)"
+    ],
+    "edits": []
+  }
+}

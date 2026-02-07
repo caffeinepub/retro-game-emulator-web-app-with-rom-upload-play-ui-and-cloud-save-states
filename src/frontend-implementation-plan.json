@@ -1,0 +1,45 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "TV/CRT frame overlay for the Play screen emulator display",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "summary": "Wrap the Play screen emulator canvas with a responsive TV/CRT frame overlay while preserving existing overlays and canvas sizing/behavior.",
+      "acceptanceCriteria": [
+        "On the Play screen, the emulator display visually appears inside a TV/CRT frame (overlay) around the existing canvas.",
+        "The ROM upload overlay (\"No ROM loaded\" + file picker) and error overlay still appear above the canvas content and remain readable/clickable.",
+        "The TV/CRT frame scales responsively with the existing aspect-video container and does not distort the canvas rendering.",
+        "The overlay does not intercept pointer events intended for the ROM upload controls (i.e., frame overlay uses pointer-events: none where appropriate)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/screens/PlayScreen.tsx",
+          "operation": "modify",
+          "description": "Update the emulator display container to include a CRT/TV frame image overlay layered above the canvas but below the ROM upload/error overlays. Ensure the overlay is positioned with absolute layout inside the existing aspect-video wrapper, scales with it, and uses pointer-events: none so it does not block ROM upload interactions; keep existing canvas sizing (w-full/h-full, pixelated) and current overlay behaviors intact."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Add the generated CRT/TV frame PNG as a static asset and render it from the Play screen emulator display container.",
+      "acceptanceCriteria": [
+        "A new TV/CRT frame PNG exists at frontend/public/assets/generated/crt-tv-frame.dim_1600x900.png.",
+        "PlayScreen uses the static generated asset path (/assets/generated/crt-tv-frame.dim_1600x900.png) to render the frame overlay.",
+        "No backend changes are required for the TV/CRT frame display."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/crt-tv-frame.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated TV/CRT frame overlay image asset at frontend/public/assets/generated/crt-tv-frame.dim_1600x900.png for use as a static overlay on the Play screen."
+        },
+        {
+          "path": "frontend/src/screens/PlayScreen.tsx",
+          "operation": "modify",
+          "description": "Render the static CRT frame overlay using the exact path /assets/generated/crt-tv-frame.dim_1600x900.png within the emulator display container, ensuring it visually frames the canvas without affecting emulator rendering or interaction layers."
+        }
+      ]
+    }
+  ]
+}

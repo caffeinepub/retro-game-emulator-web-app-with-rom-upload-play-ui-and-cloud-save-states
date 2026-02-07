@@ -1,0 +1,31 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-07T23:36:29.288Z",
+  "summary": "PlayScreen.tsx was modified to add a CRT/TV frame overlay image above the emulator canvas, but the diff does not show the required new static PNG asset being added, and truncation prevents confirming some overlay interaction/stacking details (e.g., pointer-events and overlay z-order relative to ROM/error overlays).",
+  "missing_requirements": [
+    {
+      "id": "REQ-12",
+      "requirement": "Add the generated TV/CRT frame image asset as a static file at frontend/public/assets/generated/crt-tv-frame.dim_1600x900.png.",
+      "reason": "The diff shows no added files, so the required PNG asset is not present in the change set.",
+      "evidence": [
+        "<file-diff>: ADDED FILES: none"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "Ensure the TV/CRT overlay does not intercept pointer events intended for ROM upload controls (use pointer-events: none where appropriate) and that ROM upload/error overlays remain above and clickable.",
+      "reason": "PlayScreen.tsx is truncated right where the <img> overlay is added, so the diff summary does not provide evidence of pointer-events settings or confirmed stacking order relative to ROM upload/error overlays.",
+      "evidence": [
+        "frontend/src/screens/PlayScreen.tsx (truncated)"
+      ]
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.64,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/screens/PlayScreen.tsx",
+    "project_state.json"
+  ]
+}

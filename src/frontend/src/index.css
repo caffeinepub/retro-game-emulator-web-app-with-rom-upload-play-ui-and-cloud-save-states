@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Warm retro palette - light mode */
+        --background: 0.98 0.01 40;
+        --foreground: 0.20 0.02 40;
+        --card: 1 0 0;
+        --card-foreground: 0.20 0.02 40;
+        --popover: 1 0 0;
+        --popover-foreground: 0.20 0.02 40;
+        
+        /* Primary: Warm orange/amber */
+        --primary: 0.65 0.18 45;
+        --primary-foreground: 0.98 0.01 40;
+        
+        /* Secondary: Warm beige */
+        --secondary: 0.92 0.02 50;
+        --secondary-foreground: 0.30 0.03 40;
+        
+        --muted: 0.94 0.01 45;
+        --muted-foreground: 0.50 0.02 40;
+        
+        /* Accent: Retro red */
+        --accent: 0.55 0.22 25;
+        --accent-foreground: 0.98 0.01 40;
+        
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.98 0.01 40;
+        
+        --border: 0.88 0.01 45;
+        --input: 0.88 0.01 45;
+        --ring: 0.65 0.18 45;
+        
+        --chart-1: 0.65 0.18 45;
+        --chart-2: 0.55 0.22 25;
+        --chart-3: 0.45 0.15 60;
+        --chart-4: 0.70 0.12 80;
+        --chart-5: 0.60 0.20 35;
+    }
+
+    .dark {
+        /* Dark mode - warm retro CRT aesthetic */
+        --background: 0.15 0.02 280;
+        --foreground: 0.95 0.01 40;
+        --card: 0.20 0.02 280;
+        --card-foreground: 0.95 0.01 40;
+        --popover: 0.18 0.02 280;
+        --popover-foreground: 0.95 0.01 40;
+        
+        /* Primary: Bright amber/orange for CRT glow */
+        --primary: 0.75 0.20 45;
+        --primary-foreground: 0.15 0.02 280;
+        
+        /* Secondary: Muted warm gray */
+        --secondary: 0.30 0.02 280;
+        --secondary-foreground: 0.90 0.01 40;
+        
+        --muted: 0.28 0.02 280;
+        --muted-foreground: 0.65 0.01 40;
+        
+        /* Accent: Retro red glow */
+        --accent: 0.60 0.24 25;
+        --accent-foreground: 0.95 0.01 40;
+        
+        --destructive: 0.60 0.24 25;
+        --destructive-foreground: 0.95 0.01 40;
+        
+        --border: 0.30 0.02 280;
+        --input: 0.30 0.02 280;
+        --ring: 0.75 0.20 45;
+        
+        --chart-1: 0.75 0.20 45;
+        --chart-2: 0.60 0.24 25;
+        --chart-3: 0.55 0.18 60;
+        --chart-4: 0.70 0.15 80;
+        --chart-5: 0.65 0.22 35;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    /* Retro CRT scanline effect (subtle) */
+    .crt-scanlines {
+        position: relative;
+    }
+    
+    .crt-scanlines::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.05) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.05) 3px
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+}
+
